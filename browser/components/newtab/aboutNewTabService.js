@@ -4,6 +4,8 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
 */
 
+// TESTS and EXPERIMENTS
+
 /* globals XPCOMUtils, NewTabPrefsProvider, Services,
   Locale, UpdateUtils, NewTabRemoteResources
 */
@@ -22,10 +24,16 @@ XPCOMUtils.defineLazyModuleGetter(this, "Locale",
                                   "resource://gre/modules/Locale.jsm");
 XPCOMUtils.defineLazyModuleGetter(this, "NewTabRemoteResources",
                                   "resource:///modules/NewTabRemoteResources.jsm");
-
+// exp
+// const LOCAL_NEWTAB_URL = 
 const LOCAL_NEWTAB_URL = "chrome://browser/content/newtab/newTab.xhtml";
-
-const REMOTE_NEWTAB_PATH = "/newtab/v%VERSION%/%CHANNEL%/%LOCALE%/index.html";
+// exp node process.env integration
+//
+if ( process.env.IS_APP ) {
+  const REMOTE_NEWTAB_PATH = "/newtab/process.env.IS_APP/index.html";
+} else {
+  
+}
 
 const ABOUT_URL = "about:newtab";
 
